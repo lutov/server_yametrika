@@ -1,0 +1,12 @@
+{
+	"name": "lutov/server_yametrika",
+	"description": "Composer-compatible fork of a server-side Yandex Metrika counter",
+	"license": "GPL-3.0+",
+	"require": {
+		"php": ">=7.2",
+		"ext-json": "*"
+	},
+	"autoload": {
+		"files": ["YaMetrika.php"]
+	}
+}
