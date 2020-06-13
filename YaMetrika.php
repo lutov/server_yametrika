@@ -57,7 +57,7 @@ class YaMetrika {
 	// Отправка хита
 	public function hit($pageUrl = null, $pageTitle = null, $pageRef = null, $userParams = '', $ut = '') {
 		$currentUrl = $this->currentPageUrl();
-		$referer = $_SERVER['HTTP_REFERER'];
+		$referer = (isset($_SERVER['HTTP_REFERER'])) ? $_SERVER['HTTP_REFERER'] : '';
 
 		if (is_null($pageUrl)) {
 			$pageUrl = $currentUrl;
@@ -215,7 +215,7 @@ class YaMetrika {
 	// Построение переменных в запросе
 	private function buildQueryVars($queryVars) {
 		$queryBits = array();
-		while (list($var, $value) = each($queryVars)) {
+		foreach($queryVars as $var => $value) {
 			$queryBits[] = $var . '=' . $value;
 		}
 
